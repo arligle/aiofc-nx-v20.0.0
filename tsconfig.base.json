@@ -18,7 +18,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@aiokit/bootstrap": ["libs/bootstrap/src/index.ts"]
+      "@aiokit/bootstrap": ["libs/bootstrap/src/index.ts"],
+      "@aiokit/config": ["libs/config/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

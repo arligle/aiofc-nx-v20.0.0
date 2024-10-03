@@ -4,6 +4,7 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import { AppConfig } from './config/app.config';
 
 /**
  * @description 最基础的Nest启动函数，用于启动Nest应用
@@ -15,14 +16,18 @@ export async function bootstrapBaseApp(
     module,
     new FastifyAdapter()
   );
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
 
-  const port = process.env['PORT'] || 3000;
+  const appConfig = app.get(AppConfig);
+  if(appConfig.prefix){
+    app.setGlobalPrefix(appConfig.prefix);
+  };
+
+
+  const port = appConfig.port ||  process.env['PORT'] || 3000;
   await app.listen(port, '0.0.0.0');
   const url = await app.getUrl();
   Logger.log(
-    `App successfully started! Listening on: ${url}/${globalPrefix}`
+    `App successfully started! Listening on: ${url}/${appConfig.prefix}`,
   );
 
   return app;
