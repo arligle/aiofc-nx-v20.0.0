@@ -17,7 +17,9 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@aiokit/bootstrap": ["libs/bootstrap/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

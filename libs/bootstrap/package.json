@@ -1,0 +1,14 @@
+{
+  "name": "@aiokit/bootstrap",
+  "version": "0.0.1",
+  "dependencies": {
+    "@nestjs/common": "^10.4.4",
+    "@nestjs/core": "^10.4.4",
+    "@nestjs/platform-fastify": "^10.4.4",
+    "tslib": "^2.7.0"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "private": true
+}
