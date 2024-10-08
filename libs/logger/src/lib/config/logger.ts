@@ -1,13 +1,13 @@
 import { IsString, IsBoolean } from 'class-validator';
-// import { BooleanType } from '@aiokit/validation';
+import { BooleanType } from '@aiokit/validation';
 
 export class LoggerConfig {
   @IsBoolean()
-  // @BooleanType
+  @BooleanType
   colorize = false;
 
   @IsBoolean()
-  // @BooleanType
+  @BooleanType
   prettyLogs = false;
 
   @IsString()
