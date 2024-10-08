@@ -1,0 +1,20 @@
+{
+  "name": "service-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/service-api/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/service-api",
+        "tsConfig": "libs/service-api/tsconfig.lib.json",
+        "packageJson": "libs/service-api/package.json",
+        "main": "libs/service-api/src/index.ts",
+        "assets": ["libs/service-api/*.md"]
+      }
+    }
+  }
+}
