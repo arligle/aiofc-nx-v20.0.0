@@ -34,6 +34,7 @@
     "@aiokit/swagger-utils": "workspace:*",
     "@aiokit/string-utils": "workspace:*",
     "@aiokit/common-types": "workspace:*",
+    "@aiokit/persistence-api": "workspace:*",
     "@fastify/helmet": "^11.0.0",
     "@fastify/static": "^7.0.4",
     "@grpc/grpc-js": "^1.11.3",

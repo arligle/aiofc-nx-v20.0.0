@@ -1,0 +1,20 @@
+{
+  "name": "persistence-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/persistence-api/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/persistence-api",
+        "tsConfig": "libs/persistence-api/tsconfig.lib.json",
+        "packageJson": "libs/persistence-api/package.json",
+        "main": "libs/persistence-api/src/index.ts",
+        "assets": ["libs/persistence-api/*.md"]
+      }
+    }
+  }
+}
