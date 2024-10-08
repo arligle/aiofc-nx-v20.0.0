@@ -1,0 +1,20 @@
+{
+  "name": "swagger-utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/swagger-utils/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/swagger-utils",
+        "tsConfig": "libs/swagger-utils/tsconfig.lib.json",
+        "packageJson": "libs/swagger-utils/package.json",
+        "main": "libs/swagger-utils/src/index.ts",
+        "assets": ["libs/swagger-utils/*.md"]
+      }
+    }
+  }
+}
