@@ -1,0 +1,20 @@
+{
+  "name": "validation",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/validation/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/validation",
+        "tsConfig": "libs/validation/tsconfig.lib.json",
+        "packageJson": "libs/validation/package.json",
+        "main": "libs/validation/src/index.ts",
+        "assets": ["libs/validation/*.md"]
+      }
+    }
+  }
+}

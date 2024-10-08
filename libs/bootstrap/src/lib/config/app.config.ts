@@ -1,4 +1,6 @@
 import { Allow, IsInt, IsString, Max, Min } from 'class-validator';
+import { CorsConfig } from './cors.config';
+import { ValidateNestedProperty } from '@aiokit/validation';
 
 export class AppConfig {
   @IsInt()
@@ -10,4 +12,6 @@ export class AppConfig {
   @Allow()
   prefix?: string;
 
+  @ValidateNestedProperty({ classType: CorsConfig })
+  public readonly cors!: CorsConfig;
 }

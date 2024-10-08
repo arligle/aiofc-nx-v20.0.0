@@ -29,6 +29,9 @@ importers:
       '@aiokit/logger':
         specifier: workspace:*
         version: link:libs/logger
+      '@aiokit/validation':
+        specifier: workspace:*
+        version: link:libs/validation
       '@fastify/helmet':
         specifier: ^11.0.0
         version: 11.1.1
@@ -359,6 +362,12 @@ importers:
       '@aiokit/crypto':
         specifier: workspace:*
         version: link:../crypto
+      '@aiokit/validation':
+        specifier: workspace:*
+        version: link:../validation
+      '@nestjs/common':
+        specifier: ^10.4.4
+        version: 10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@nestjs/core':
         specifier: ^10.4.4
         version: 10.4.4(@nestjs/common@10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.4)(reflect-metadata@0.2.2)(rxjs@7.8.1)
@@ -501,6 +510,30 @@ importers:
       tslib:
         specifier: ^2.7.0
         version: 2.7.0
+
+  libs/validation:
+    dependencies:
+      '@aiokit/exceptions':
+        specifier: workspace:*
+        version: link:../exceptions
+      '@aiokit/i18n':
+        specifier: workspace:*
+        version: link:../i18n
+      '@nestjs/common':
+        specifier: ^10.4.4
+        version: 10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
+      class-validator:
+        specifier: ^0.14.1
+        version: 0.14.1
+      tslib:
+        specifier: ^2.7.0
+        version: 2.7.0
+      validator:
+        specifier: 13.12.0
+        version: 13.12.0
 
 packages:
 
