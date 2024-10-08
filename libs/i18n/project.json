@@ -1,0 +1,20 @@
+{
+  "name": "i18n",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/i18n/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/i18n",
+        "tsConfig": "libs/i18n/tsconfig.lib.json",
+        "packageJson": "libs/i18n/package.json",
+        "main": "libs/i18n/src/index.ts",
+        "assets": ["libs/i18n/*.md"]
+      }
+    }
+  }
+}

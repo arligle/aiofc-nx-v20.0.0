@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@aiokit/async-storage':
+        specifier: workspace:*
+        version: link:libs/async-storage
       '@aiokit/bootstrap':
         specifier: workspace:*
         version: link:libs/bootstrap
@@ -17,6 +20,9 @@ importers:
       '@aiokit/crypto':
         specifier: workspace:*
         version: link:libs/crypto
+      '@aiokit/i18n':
+        specifier: workspace:*
+        version: link:libs/i18n
       '@aiokit/logger':
         specifier: workspace:*
         version: link:libs/logger
@@ -312,6 +318,9 @@ importers:
       '@aiokit/config':
         specifier: workspace:*
         version: link:../../libs/config
+      '@aiokit/logger':
+        specifier: workspace:*
+        version: link:../../libs/logger
       '@nestjs/common':
         specifier: ^10.4.4
         version: 10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
@@ -329,6 +338,18 @@ importers:
         version: 4.1.0(@nestjs/common@10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(pino-http@10.3.0)
 
   apps/master-e2e: {}
+
+  libs/async-storage:
+    dependencies:
+      '@nestjs/common':
+        specifier: ^10.4.4
+        version: 10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      nestjs-cls:
+        specifier: ^4.4.1
+        version: 4.4.1(@nestjs/common@10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.4)(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      tslib:
+        specifier: ^2.7.0
+        version: 2.7.0
 
   libs/bootstrap:
     dependencies:
@@ -374,6 +395,73 @@ importers:
       tslib:
         specifier: ^2.7.0
         version: 2.7.0
+
+  libs/i18n:
+    dependencies:
+      '@grpc/grpc-js':
+        specifier: ^1.11.3
+        version: 1.11.3
+      '@nestjs/common':
+        specifier: ^10.4.4
+        version: 10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.14)(rxjs@7.8.1)
+      '@nestjs/core':
+        specifier: ^10.4.4
+        version: 10.4.4(@nestjs/common@10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.4)(reflect-metadata@0.1.14)(rxjs@7.8.1)
+      '@nestjs/graphql':
+        specifier: ^12.2.0
+        version: 12.2.0(@nestjs/common@10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.4(@nestjs/common@10.4.4(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.4)(reflect-metadata@0.1.14)(rxjs@7.8.1))(class-transformer@0.5.1)(class-validator@0.14.1)(graphql@16.9.0)(reflect-metadata@0.1.14)
+      accept-language-parser:
+        specifier: ^1.5.0
+        version: 1.5.0
+      chalk:
+        specifier: 5.3.0
+        version: 5.3.0
+      chokidar:
+        specifier: 3.6.0
+        version: 3.6.0
+      class-validator:
+        specifier: ^0.14.1
+        version: 0.14.1
+      cookie:
+        specifier: 0.6.0
+        version: 0.6.0
+      fs-extra:
+        specifier: ^11.2.0
+        version: 11.2.0
+      hbs:
+        specifier: ^4.2.0
+        version: 4.2.0
+      iterare:
+        specifier: 1.2.1
+        version: 1.2.1
+      js-yaml:
+        specifier: ^4.1.0
+        version: 4.1.0
+      mergician:
+        specifier: ^2.0.2
+        version: 2.0.2
+      reflect-metadata:
+        specifier: ^0.1.13
+        version: 0.1.14
+      rxjs:
+        specifier: ^7.8.0
+        version: 7.8.1
+      string-format:
+        specifier: ^2.0.0
+        version: 2.0.0
+      tslib:
+        specifier: ^2.7.0
+        version: 2.7.0
+      typescript:
+        specifier: ~5.5.2
+        version: 5.5.4
+      yargs:
+        specifier: 17.7.2
+        version: 17.7.2
+    devDependencies:
+      '@types/accept-language-parser':
+        specifier: ^1.5.6
+        version: 1.5.6
 
   libs/logger:
     dependencies:
@@ -2010,6 +2098,9 @@ packages:
 
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
+
+  '@types/accept-language-parser@1.5.6':
+    resolution: {integrity: sha512-lhSQUsAhAtbKjYgaw3f0c4EQKNQHFXhX87+OXUIqDHMkycvHGaqGskSRtnzysIUiqHPqNJ4BqI5SE++drsxx6A==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -9426,6 +9517,8 @@ snapshots:
   '@tybys/wasm-util@0.9.0':
     dependencies:
       tslib: 2.7.0
+
+  '@types/accept-language-parser@1.5.6': {}
 
   '@types/babel__core@7.20.5':
     dependencies:
