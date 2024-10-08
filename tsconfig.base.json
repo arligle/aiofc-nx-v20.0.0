@@ -24,6 +24,7 @@
       "@aiokit/crypto": ["libs/crypto/src/index.ts"],
       "@aiokit/async-storage": ["libs/async-storage/src/index.ts"],
       "@aiokit/i18n": ["libs/i18n/src/index.ts"],
+      "@aiokit/exceptions": ["libs/exceptions/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
