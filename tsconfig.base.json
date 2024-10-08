@@ -20,7 +20,9 @@
     "paths": {
       "@aiokit/bootstrap": ["libs/bootstrap/src/index.ts"],
       "@aiokit/config": ["libs/config/src/index.ts"],
-      "@aiokit/logger": ["libs/logger/src/index.ts"]
+      "@aiokit/logger": ["libs/logger/src/index.ts"],
+      "@aiokit/crypto": ["libs/crypto/src/index.ts"],
+      "@aiokit/async-storage": ["libs/async-storage/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

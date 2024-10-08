@@ -5,7 +5,6 @@ import { IncomingMessage, ServerResponse } from 'node:http';
 
 import { LoggerConfig } from './config/logger';
 import { DynamicModule } from '@nestjs/common';
-import path from 'node:path';
 /**
  * @description 配置和初始化日志记录模块
  * @export
