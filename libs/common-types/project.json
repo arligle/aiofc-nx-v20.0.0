@@ -1,0 +1,20 @@
+{
+  "name": "common-types",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/common-types/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/common-types",
+        "tsConfig": "libs/common-types/tsconfig.lib.json",
+        "packageJson": "libs/common-types/package.json",
+        "main": "libs/common-types/src/index.ts",
+        "assets": ["libs/common-types/*.md"]
+      }
+    }
+  }
+}

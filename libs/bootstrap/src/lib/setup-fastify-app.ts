@@ -150,18 +150,21 @@ export async function bootstrapFastifyApp(
   const swaggerConfig = callOrUndefinedIfException(() =>
     app.get(SwaggerConfig)
   );
+  // 启用跨域资源共享（CORS）功能，以便在应用程序中处理跨域请求。
   app.enableCors(appConfig.cors);
 
   if (appConfig.prefix) {
     app.setGlobalPrefix(appConfig.prefix);
   }
 
+  const port = appConfig.port || process.env['PORT'] || 3000;
+
   if (swaggerConfig instanceof SwaggerConfig) {
     const swaggerSetup = setupSwagger(swaggerConfig, app, appConfig.prefix);
     const swaggerPath = `${appConfig.prefix}${swaggerConfig.swaggerPath}`;
 
     if (swaggerSetup) {
-      logger.log(`Swagger is listening on ${swaggerPath}`);
+      logger.log(`Swagger is listening on: http://localhost:9999/${swaggerPath}`);
     } else {
       logger.log(`Swagger is disabled by config, skipping...`);
     }
@@ -172,9 +175,10 @@ export async function bootstrapFastifyApp(
     );
   }
 
-  const port = appConfig.port || process.env['PORT'] || 3000;
   await app.listen(port, '0.0.0.0');
+
   const url = await app.getUrl();
+
   logger.log(
     `App successfully started! Listening on: ${url}/${appConfig.prefix}`
   );

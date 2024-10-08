@@ -27,7 +27,8 @@
       "@aiokit/exceptions": ["libs/exceptions/src/index.ts"],
       "@aiokit/validation": ["libs/validation/src/index.ts"],
       "@aiokit/swagger-utils": ["libs/swagger-utils/src/index.ts"],
-      "@aiokit/string-utils": ["libs/string-utils/src/index.ts"]
+      "@aiokit/string-utils": ["libs/string-utils/src/index.ts"],
+      "@aiokit/common-types": ["libs/common-types/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
