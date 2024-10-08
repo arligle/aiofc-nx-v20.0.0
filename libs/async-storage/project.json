@@ -1,0 +1,20 @@
+{
+  "name": "async-storage",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/async-storage/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/async-storage",
+        "tsConfig": "libs/async-storage/tsconfig.lib.json",
+        "packageJson": "libs/async-storage/package.json",
+        "main": "libs/async-storage/src/index.ts",
+        "assets": ["libs/async-storage/*.md"]
+      }
+    }
+  }
+}
