@@ -1,0 +1,20 @@
+{
+  "name": "server-http-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/server-http-client/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/server-http-client",
+        "tsConfig": "libs/server-http-client/tsconfig.lib.json",
+        "packageJson": "libs/server-http-client/package.json",
+        "main": "libs/server-http-client/src/index.ts",
+        "assets": ["libs/server-http-client/*.md"]
+      }
+    }
+  }
+}
