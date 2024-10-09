@@ -36,6 +36,7 @@
     "@aiokit/string-utils": "workspace:*",
     "@aiokit/swagger-utils": "workspace:*",
     "@aiokit/validation": "workspace:*",
+    "@aiokit/typeorm": "workspace:*",
     "@fastify/helmet": "^11.0.0",
     "@fastify/static": "^7.0.1",
     "@grpc/grpc-js": "^1.11.3",
