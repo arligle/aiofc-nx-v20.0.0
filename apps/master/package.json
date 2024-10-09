@@ -3,14 +3,13 @@
   "version": "0.0.1",
   "dependencies": {
     "@aiokit/bootstrap": "workspace:*",
-    "@nestjs/common": "^10.4.4",
-    "@nx/webpack": "19.8.2",
     "@aiokit/config": "workspace:*",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.1",
-    "nestjs-pino": "^4.1.0",
+    "@aiokit/i18n": "workspace:*",
     "@aiokit/logger": "workspace:*",
     "@aiokit/swagger-utils": "workspace:*",
-    "@aiokit/i18n": "workspace:*"
+    "@nestjs/common": "^10.4.4",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "nestjs-pino": "^4.1.0"
   }
 }

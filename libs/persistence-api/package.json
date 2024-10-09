@@ -4,8 +4,8 @@
   "dependencies": {
     "@aiokit/common-types": "workspace:*",
     "nestjs-cls": "^4.4.1",
-    "tslib": "^2.7.0",
-    "nestjs-paginate": "^9.1.2"
+    "nestjs-paginate": "^9.1.2",
+    "tslib": "^2.7.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",
