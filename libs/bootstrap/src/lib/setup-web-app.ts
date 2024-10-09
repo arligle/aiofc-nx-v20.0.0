@@ -40,8 +40,9 @@ import { fastifyHelmet } from '@fastify/helmet';
 // import { DataSource } from 'typeorm';
 import { callOrUndefinedIfException } from './utils/functions';
 import type { TestingModule } from '@nestjs/testing';
+import { REQUEST_ID_HEADER } from '@aiokit/server-http-client';
 
-const REQUEST_ID_HEADER = 'x-request-id';
+// const REQUEST_ID_HEADER = 'x-request-id';
 
 // 注意：这里的export并不是为了导出给别的模块使用，而是为了把函数加入到module.exports对象
 export function buildFastifyAdapter() : FastifyAdapter {
