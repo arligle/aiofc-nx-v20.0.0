@@ -48,6 +48,7 @@
     "@nestjs/graphql": "^12.2.0",
     "@nestjs/jwt": "^10.2.0",
     "@nestjs/passport": "^10.0.3",
+    "@nestjs/platform-express": "^10.0.2",
     "@nestjs/platform-fastify": "^10.4.4",
     "@nestjs/swagger": "^7.4.2",
     "@nestjs/terminus": "^10.2.3",
