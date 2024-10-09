@@ -1,0 +1,20 @@
+{
+  "name": "health-check",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/health-check/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/health-check",
+        "tsConfig": "libs/health-check/tsconfig.lib.json",
+        "packageJson": "libs/health-check/package.json",
+        "main": "libs/health-check/src/index.ts",
+        "assets": ["libs/health-check/*.md"]
+      }
+    }
+  }
+}

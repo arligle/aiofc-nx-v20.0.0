@@ -32,6 +32,9 @@
       "@aiokit/persistence-api": ["libs/persistence-api/src/index.ts"],
       "@aiokit/service-api": ["libs/service-api/src/index.ts"],
       "@aiokit/typeorm": ["libs/typeorm/src/index.ts"],
+      "@aiokit/auth": ["libs/auth/src/index.ts"],
+      "@aiokit/health-check": ["libs/health-check/src/index.ts"],
+      "@aiokit/server-http-client": ["libs/server-http-client/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
