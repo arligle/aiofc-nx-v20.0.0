@@ -4,6 +4,7 @@ import { AppConfig } from '@aiokit/bootstrap';
 import { LoggerConfig } from '@aiokit/logger';
 import { SwaggerConfig } from '@aiokit/swagger-utils';
 import { I18Config } from '@aiokit/i18n';
+import { DbConfig } from '@aiokit/typeorm';
 
 
 export default class RootConfig {
@@ -22,4 +23,8 @@ export default class RootConfig {
   @Type(() => I18Config)
   @ValidateNested()
   public readonly i18!: I18Config;
+
+  @Type(() => DbConfig)
+  @ValidateNested()
+  public readonly db!: DbConfig;
 }

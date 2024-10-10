@@ -3,9 +3,9 @@
 import { bootstrapBaseWebApp } from "@aiokit/bootstrap";
 import { AppModule } from "./app.module";
 
-// bootstrapBaseApp(AppModule);
-// import { initializeTransactionalContext } from 'typeorm-transactional';
-// initializeTransactionalContext();
+import { initializeTransactionalContext } from 'typeorm-transactional';
+initializeTransactionalContext();
 bootstrapBaseWebApp(AppModule);
 
+// bootstrapBaseApp(AppModule);
 // bootstrapFastifyApp(AppModule);
