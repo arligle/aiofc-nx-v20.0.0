@@ -5,12 +5,55 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "generatePackageJson": true,
+        "generateLockFile": true,
+        "outputPath": "dist/apps/master",
+        "main": "apps/master/src/main.ts",
+        "tsConfig": "apps/master/tsconfig.app.json",
+        "tsPlugins": [
+          {
+            "name": "@nestjs/swagger/plugin",
+            "options": {
+              "dtoFileNameSuffix": [".entity.ts", ".dto.ts"],
+              "controllerFileNameSuffix": [".controller.ts"],
+              "classValidatorShim": true,
+              "dtoKeyOfComment": "description",
+              "controllerKeyOfComment": "description",
+              "introspectComments": true
+            }
+          }
+        ],
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/master/src/assets",
+            "output": "assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/master/src/i18n/",
+            "output": "i18n"
+          }
+        ],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/master/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "master:build",
         "runBuildTargetDependencies": false
@@ -21,6 +64,14 @@
         },
         "production": {
           "buildTarget": "master:build:production"
+        }
+      },
+      "i18n": {
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            "i18n generate-types -o apps/master/src/generated/i18n.generated.ts -t json -p apps/master/src/i18n -t json -p node_modules/@aiokit/validation/src/lib/i18n/ -t json -p node_modules/@aiokit/exceptions/src/lib/i18n/"
+          ]
         }
       }
     }
