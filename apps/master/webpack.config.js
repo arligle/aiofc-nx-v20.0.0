@@ -19,4 +19,4 @@ module.exports = {
   ],
 };
 
-// TODO: 注意这里的配置应当与 project.json 中的配置合并，当前没有处理
+// TODO: 注意这里的配置应当与 project.json 中的配置合并，当前没有完全处理

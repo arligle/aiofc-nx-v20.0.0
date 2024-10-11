@@ -9,10 +9,12 @@ import { Logger } from 'nestjs-pino';
 import { setupTypeormModule } from '@aiokit/typeorm';
 import * as Entities from './database/entities';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { setupI18NModule } from '@aiokit/i18n';
 
 @Module({
   imports: [
     setupYamlBaseConfigModule(__dirname, RootConfig),
+    setupI18NModule(__dirname),
     setupLoggerModule(),
     TypeOrmModule.forFeature(Object.values(Entities)),
     setupTypeormModule()

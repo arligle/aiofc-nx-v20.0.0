@@ -65,14 +65,14 @@
         "production": {
           "buildTarget": "master:build:production"
         }
-      },
-      "i18n": {
-        "executor": "nx:run-commands",
-        "options": {
-          "commands": [
-            "i18n generate-types -o apps/master/src/generated/i18n.generated.ts -t json -p apps/master/src/i18n -t json -p node_modules/@aiokit/validation/src/lib/i18n/ -t json -p node_modules/@aiokit/exceptions/src/lib/i18n/"
-          ]
-        }
+      }
+    },
+    "i18n": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "i18n generate-types -o apps/master/src/generated/i18n.generated.ts -t json -p apps/master/src/i18n -t json -p node_modules/@aiokit/validation/src/lib/i18n/ -t json -p node_modules/@aiokit/exceptions/src/lib/i18n/"
+        ]
       }
     }
   }

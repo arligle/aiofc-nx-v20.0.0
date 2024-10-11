@@ -15,10 +15,10 @@ import {
   I18nValidationPipe,
 } from '@aiokit/i18n';
 import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
-// import { initializeTransactionalContext } from 'typeorm-transactional';
-// import { getTransactionalContext } from 'typeorm-transactional/dist/common';
+import { initializeTransactionalContext } from 'typeorm-transactional';
+import { getTransactionalContext } from 'typeorm-transactional/dist/common';
 import { generateRandomId } from '@aiokit/crypto';
-// import { runSeeders } from 'typeorm-extension';
+import { runSeeders } from 'typeorm-extension';
 import {
   AnyExceptionFilter,
   HttpExceptionFilter,
@@ -28,16 +28,15 @@ import {
 import { DEFAULT_VALIDATION_OPTIONS } from '@aiokit/validation';
 import { AppConfig } from './config/app.config';
 import { setupSwagger, SwaggerConfig } from '@aiokit/swagger-utils';
-// import {
-//   // DbConfig,
-//   PostgresDbQueryFailedErrorFilter,
-//   TYPEORM_FACTORIES_TOKEN,
-//   TYPEORM_SEEDERS_TOKEN,
-// } from '@aiokit/typeorm';
+import {
+  DbConfig,
+  PostgresDbQueryFailedErrorFilter,
+  TYPEORM_FACTORIES_TOKEN,
+  TYPEORM_SEEDERS_TOKEN,
+} from '@aiokit/typeorm';
 import { responseBodyFormatter } from '@aiokit/exceptions';
-// import { REQUEST_ID_HEADER } from '@aiokit/server-http-client';
 import { fastifyHelmet } from '@fastify/helmet';
-// import { DataSource } from 'typeorm';
+import { DataSource } from 'typeorm';
 import { callOrUndefinedIfException } from './utils/functions';
 import type { TestingModule } from '@nestjs/testing';
 import { REQUEST_ID_HEADER } from '@aiokit/server-http-client';
@@ -64,12 +63,13 @@ export function setupGlobalFilters(
     new OverrideDefaultNotFoundFilter(httpAdapterHost as any),
     new OverrideDefaultForbiddenExceptionFilter(httpAdapterHost as any),
     // todo generalize
-    // new PostgresDbQueryFailedErrorFilter(httpAdapterHost as any),
+    new PostgresDbQueryFailedErrorFilter(httpAdapterHost as any),
     new HttpExceptionFilter(httpAdapterHost as any),
     new I18nValidationExceptionFilter({
       responseBodyFormatter,
       detailedErrors: true,
     }),
+    // 加入更多的Filter
   );
 }
 
@@ -125,36 +125,36 @@ function setupGlobalInterceptors(app: INestApplication) {
   app.useGlobalInterceptors(new LoggerErrorInterceptor());
 }
 
-// export async function runDatabaseSeeders(
-//   app: INestApplication,
-//   logger: Logger,
-//   shouldRunSeeds: boolean,
-// ) {
-//   if (!shouldRunSeeds) {
-//     return;
-//   }
+export async function runDatabaseSeeders(
+  app: INestApplication,
+  logger: Logger,
+  shouldRunSeeds: boolean,
+) {
+  if (!shouldRunSeeds) {
+    return;
+  }
 
-//   const ds = callOrUndefinedIfException(() => app.get(DataSource));
-//   const seeders = app.get(TYPEORM_SEEDERS_TOKEN);
-//   const factories = app.get(TYPEORM_FACTORIES_TOKEN);
+  const ds = callOrUndefinedIfException(() => app.get(DataSource));
+  const seeders = app.get(TYPEORM_SEEDERS_TOKEN);
+  const factories = app.get(TYPEORM_FACTORIES_TOKEN);
 
-//   if (seeders.length === 0) {
-//     return logger.warn(
-//       'Warning: No seeders found. Ensure you have provided seeders if you are expecting database seeding to occur.',
-//     );
-//   }
+  if (seeders.length === 0) {
+    return logger.warn(
+      'Warning: No seeders found. Ensure you have provided seeders if you are expecting database seeding to occur.',
+    );
+  }
 
-//   if (ds instanceof DataSource) {
-//     await runSeeders(ds, {
-//       seeds: seeders,
-//       factories,
-//     });
-//   } else {
-//     logger.warn(
-//       'Seems like run seeds is enabled, but there is no data source provided, this seems like a mistake. Please review or disable seed run',
-//     );
-//   }
-// }
+  if (ds instanceof DataSource) {
+    await runSeeders(ds, {
+      seeds: seeders,
+      factories,
+    });
+  } else {
+    logger.warn(
+      'Seems like run seeds is enabled, but there is no data source provided, this seems like a mistake. Please review or disable seed run',
+    );
+  }
+}
 
 export async function bootstrapBaseWebApp(
   module: any | TestingModule,
@@ -162,12 +162,12 @@ export async function bootstrapBaseWebApp(
 ) {
   // todo 等待这个包中的pr被合并
   //  转换为使用 AsyncCls 而不是 ClsHook
-  // const transactionalContext = getTransactionalContext();
+  const transactionalContext = getTransactionalContext();
 
   // 这是测试所必需的，以防止多次初始化
-  // if (!transactionalContext) {
-  //   initializeTransactionalContext();
-  // }
+  if (!transactionalContext) {
+    initializeTransactionalContext();
+  }
 
   const app = await exports.createNestWebApp(module, originalModule);
   // 直接访问和操作 Fastify 实例，利用 Fastify 提供的各种功能和插件来扩展和定制你的 NestJS 应用程序。
@@ -222,7 +222,7 @@ export async function bootstrapBaseWebApp(
   setupGlobalInterceptors(app);
 
   const appConfig = app.get(AppConfig);
-  // const dbConfig = callOrUndefinedIfException(() => app.get(DbConfig));
+  const dbConfig = callOrUndefinedIfException(() => app.get(DbConfig));
   const swaggerConfig = callOrUndefinedIfException(() =>
     app.get(SwaggerConfig),
   );
@@ -252,9 +252,9 @@ export async function bootstrapBaseWebApp(
     );
   }
 
-  // if (dbConfig instanceof DbConfig) {
-  //   await exports.runDatabaseSeeders(app, logger, dbConfig.runSeeds);
-  // }
+  if (dbConfig instanceof DbConfig) {
+    await exports.runDatabaseSeeders(app, logger, dbConfig.runSeeds);
+  }
 
   await app.listen(appConfig.port, '0.0.0.0');
   const url = await app.getUrl();
