@@ -258,10 +258,8 @@ export class I18nModule implements OnModuleInit, NestModule {
             } as any,
             {
               provide: optionsToken,
-              useFactory: () => {
-                // Provide a default implementation or throw an error
-                throw new Error('No factory implementation provided');
-              },
+              // eslint-disable-next-line @typescript-eslint/no-empty-function
+              useFactory: () => {},
             },
           );
         }

@@ -9,18 +9,18 @@
     "@aiokit/swagger-utils": "workspace:*",
     "@nestjs/common": "^10.4.4",
     "@nx/webpack": "20.0.0",
-    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
-    "nestjs-pino": "^4.1.0",
     "typeorm": "0.3.20",
     "@aiokit/typeorm": "workspace:*",
     "@aiokit/validation": "workspace:*",
     "@aiokit/persistence-api": "workspace:*",
     "typeorm-extension": "^3.6.2",
-    "@faker-js/faker": "8.4.1",
     "@aiokit/common-types": "workspace:*",
+    "@nestjs/testing": "^10.4.4",
+    "nestjs-pino": "^4.1.0",
     "@nestjs/typeorm": "^10.0.2",
-    "typeorm-transactional": "^0.5.0",
-    "@nestjs/testing": "^10.4.4"
+    "class-transformer": "^0.5.1",
+    "@faker-js/faker": "8.4.1",
+    "typeorm-transactional": "^0.5.0"
   }
 }

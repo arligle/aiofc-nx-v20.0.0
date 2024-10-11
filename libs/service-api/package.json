@@ -6,9 +6,9 @@
     "@aiokit/exceptions": "workspace:*",
     "@aiokit/persistence-api": "workspace:*",
     "@aiokit/validation": "workspace:*",
-    "class-transformer": "^0.5.1",
-    "nestjs-paginate": "^9.1.2",
     "tslib": "^2.7.0",
+    "nestjs-paginate": "^9.1.2",
+    "class-transformer": "^0.5.1",
     "typeorm-transactional": "^0.5.0"
   },
   "type": "commonjs",
